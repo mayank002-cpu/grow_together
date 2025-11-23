@@ -18,28 +18,20 @@
       --radius-lg: 18px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: radial-gradient(circle at top left, #fef3c7 0, #f3f4f6 40%, #e0f2fe 100%);
       color: var(--text-main);
       line-height: 1.5;
       min-height: 100vh;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .page {
-      max-width: 1080px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 16px 16px 40px;
     }
@@ -64,16 +56,8 @@
       border: 1px solid #e5e7eb;
     }
 
-    .login-card h2 {
-      font-size: 1.2rem;
-      margin-bottom: 4px;
-    }
-
-    .login-card p {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
+    .login-card h2 { font-size: 1.2rem; margin-bottom: 4px; }
+    .login-card p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px; }
 
     .login-label {
       font-size: 0.8rem;
@@ -98,22 +82,9 @@
       background: #ffffff;
     }
 
-    .login-btn {
-      width: 100%;
-      margin-top: 4px;
-    }
-
-    .login-hint {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    .login-error {
-      font-size: 0.78rem;
-      color: #b91c1c;
-      margin-top: 4px;
-    }
+    .login-btn { width: 100%; margin-top: 4px; }
+    .login-hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+    .login-error { font-size: 0.78rem; color: #b91c1c; margin-top: 4px; }
 
     /* HEADER */
     header {
@@ -124,41 +95,19 @@
       padding: 6px 2px 10px;
     }
 
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .logo-wrap { display: flex; align-items: center; gap: 10px; }
 
     .logo-circle {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
+      width: 38px; height: 38px; border-radius: 50%;
       background: conic-gradient(from 180deg, #22c55e, #facc15, #22c55e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #022c22;
-      font-weight: 800;
-      box-shadow: var(--shadow);
+      display: flex; align-items: center; justify-content: center;
+      color: #022c22; font-weight: 800; box-shadow: var(--shadow);
     }
 
-    .logo-text-main {
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
+    .logo-text-main { font-size: 1.2rem; font-weight: 700; }
+    .logo-text-sub { font-size: 0.8rem; color: var(--text-muted); }
 
-    .logo-text-sub {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: flex-end;
-    }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
 
     nav a {
       font-size: 0.82rem;
@@ -185,16 +134,8 @@
       border: 1px solid rgba(148, 163, 184, 0.4);
     }
 
-    .user-bar strong {
-      color: #022c22;
-    }
+    .user-bar strong { color: #022c22; }
 
-    .small-btn {
-      font-size: 0.76rem;
-      padding: 4px 10px;
-    }
-
-    /* BUTTONS */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -230,9 +171,9 @@
       cursor: pointer;
     }
 
-    .btn-ghost:hover {
-      background: #e5e7eb;
-    }
+    .btn-ghost:hover { background: #e5e7eb; }
+
+    .small-btn { font-size: 0.76rem; padding: 4px 10px; }
 
     /* HERO */
     .hero {
@@ -259,13 +200,9 @@
     }
 
     .hero-badge span.star {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
+      width: 18px; height: 18px; border-radius: 50%;
       background: #bbf7d0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-flex; align-items: center; justify-content: center;
       font-size: 0.7rem;
     }
 
@@ -275,9 +212,7 @@
       margin-bottom: 6px;
     }
 
-    .hero-title span {
-      color: #166534;
-    }
+    .hero-title span { color: #166534; }
 
     .hero-sub {
       font-size: 0.95rem;
@@ -285,17 +220,8 @@
       margin-bottom: 12px;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-
-    .hero-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+    .hero-note { font-size: 0.8rem; color: var(--text-muted); }
 
     .hero-right {
       background: #ffffff;
@@ -321,12 +247,7 @@
       color: #854d0e;
     }
 
-    .hero-grid {
-      display: grid;
-      gap: 6px;
-      font-size: 0.8rem;
-      margin-bottom: 6px;
-    }
+    .hero-grid { display: grid; gap: 6px; font-size: 0.8rem; margin-bottom: 6px; }
 
     .hero-row {
       display: flex;
@@ -336,16 +257,10 @@
       padding: 5px 7px;
     }
 
-    .hero-row span:first-child {
-      font-weight: 500;
-    }
+    .hero-row span:first-child { font-weight: 500; }
+    .hero-mini { font-size: 0.76rem; color: var(--text-muted); }
 
-    .hero-mini {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-    }
-
-    /* LAYOUT CARDS */
+    /* CARDS */
     .cards-row {
       display: grid;
       grid-template-columns: 1.4fr 1.6fr;
@@ -354,19 +269,10 @@
     }
 
     @media (max-width: 880px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-      .cards-row {
-        grid-template-columns: 1fr;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav {
-        justify-content: flex-start;
-      }
+      .hero { grid-template-columns: 1fr; }
+      .cards-row { grid-template-columns: 1fr; }
+      header { flex-direction: column; align-items: flex-start; }
+      nav { justify-content: flex-start; }
     }
 
     .card {
@@ -385,10 +291,7 @@
       margin-bottom: 8px;
     }
 
-    .card-title {
-      font-size: 1rem;
-      font-weight: 600;
-    }
+    .card-title { font-size: 1rem; font-weight: 600; }
 
     .tag {
       font-size: 0.72rem;
@@ -398,35 +301,7 @@
       color: #0369a1;
     }
 
-    .card-sub {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    /* ROUTINE */
-    .routine-list {
-      font-size: 0.84rem;
-      display: grid;
-      gap: 6px;
-    }
-
-    .routine-item {
-      padding: 6px 7px;
-      border-radius: 10px;
-      background: #f9fafb;
-      border: 1px dashed var(--border);
-    }
-
-    .routine-item h4 {
-      font-size: 0.86rem;
-      margin-bottom: 2px;
-    }
-
-    .routine-item span {
-      font-size: 0.74rem;
-      color: var(--text-muted);
-    }
+    .card-sub { font-size: 0.84rem; color: var(--text-muted); margin-bottom: 8px; }
 
     /* SCOREBOARD */
     .scoreboard-top {
@@ -446,9 +321,7 @@
       align-items: center;
     }
 
-    .score-pill span:first-child {
-      font-weight: 600;
-    }
+    .score-pill span:first-child { font-weight: 600; }
 
     .score-table {
       width: 100%;
@@ -464,17 +337,10 @@
       text-align: left;
     }
 
-    .score-table th {
-      font-weight: 600;
-      color: #4b5563;
-    }
+    .score-table th { font-weight: 600; color: #4b5563; }
 
     /* CHECKLIST */
-    .checklist {
-      font-size: 0.8rem;
-      display: grid;
-      gap: 6px;
-    }
+    .checklist { font-size: 0.8rem; display: grid; gap: 6px; }
 
     .check-row {
       display: grid;
@@ -483,53 +349,13 @@
       align-items: center;
     }
 
-    .check-row-header span {
-      font-weight: 600;
-    }
+    .check-row-header span { font-weight: 600; }
 
     .check-row label {
       display: flex;
       align-items: center;
       gap: 4px;
       font-size: 0.78rem;
-    }
-
-    /* WEEK TABLE */
-    .week-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.78rem;
-      margin-top: 4px;
-    }
-
-    .week-table th,
-    .week-table td {
-      padding: 4px 3px;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .week-table th {
-      font-weight: 600;
-      color: #4b5563;
-    }
-
-    textarea {
-      width: 100%;
-      padding: 6px 7px;
-      border-radius: 10px;
-      border: 1px solid #d4d4d8;
-      font-size: 0.8rem;
-      background: #f9fafb;
-      resize: vertical;
-      min-height: 70px;
-      margin-bottom: 6px;
-    }
-
-    textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.16);
-      background: #ffffff;
     }
 
     footer {
@@ -546,22 +372,21 @@
     <div class="login-card">
       <h2>Grow Together Login</h2>
       <p>Only for <strong>Mayank Pandey</strong> &amp; <strong>Himanshu Pal</strong>.</p>
-      <form id="loginForm">
-        <label class="login-label" for="loginUsername">Username</label>
-        <input
-          id="loginUsername"
-          class="login-input"
-          type="text"
-          placeholder="mayank or himanshu"
-          autocomplete="off"
-          required
-        />
-        <button type="submit" class="btn btn-primary login-btn">Enter</button>
-        <div class="login-hint">
-          Username fixed: <code>mayank</code> or <code>himanshu</code>.
-        </div>
-        <div id="loginError" class="login-error"></div>
-      </form>
+
+      <label class="login-label" for="loginUsername">Username</label>
+      <input
+        id="loginUsername"
+        class="login-input"
+        type="text"
+        placeholder="mayank or himanshu"
+        autocomplete="off"
+        onkeydown="if(event.key==='Enter'){loginUser();}"
+      />
+      <button type="button" class="btn btn-primary login-btn" onclick="loginUser()">Enter</button>
+      <div class="login-hint">
+        Username fixed: <code>mayank</code> or <code>himanshu</code>.
+      </div>
+      <div id="loginError" class="login-error"></div>
     </div>
   </div>
 
@@ -576,10 +401,8 @@
         </div>
       </div>
       <nav>
-        <a href="#routine">Routine</a>
         <a href="#scoreboard">Scoreboard</a>
-        <a href="#weekly">Weekly Targets</a>
-        <a href="#dashboard">Dashboard</a>
+        <a href="#checklist">Checklist</a>
       </nav>
     </header>
 
@@ -599,19 +422,19 @@
           Beat <span>Boards Together</span>, not alone.
         </h1>
         <p class="hero-sub">
-          Private HQ for Mayank & Himanshu to track routine, mini-tests, scores and weekly targets.
-          No excuses, no fake study – only honest growth and friendly competition.
+          Private HQ for Mayank &amp; Himanshu to track routine, mini-tests, scores and
+          daily discipline. No excuses, no fake study – only honest growth.
         </p>
         <div class="hero-actions">
-          <button class="btn btn-primary" onclick="document.getElementById('dashboard').scrollIntoView({behavior:'smooth'})">
-            Open Study Dashboard
+          <button class="btn btn-primary" onclick="document.getElementById('scoreboard').scrollIntoView({behavior:'smooth'})">
+            Go to Scoreboard
           </button>
-          <button class="btn btn-outline" onclick="document.getElementById('routine').scrollIntoView({behavior:'smooth'})">
-            View Daily Routine
+          <button class="btn btn-outline" onclick="document.getElementById('checklist').scrollIntoView({behavior:'smooth'})">
+            Open Checklist
           </button>
         </div>
         <p class="hero-note">
-          “One day missed = two days lost.” We promise each other to show up every single day.
+          “One day missed = two days lost.” Promise each other to show up every day.
         </p>
       </div>
 
@@ -622,7 +445,7 @@
         </div>
         <div class="hero-grid">
           <div class="hero-row">
-            <span>Morning Study</span><span>NCERT + Toughest subject</span>
+            <span>Morning Study</span><span>NCERT + toughest subject</span>
           </div>
           <div class="hero-row">
             <span>Evening Practice</span><span>PYQs / numericals</span>
@@ -632,64 +455,8 @@
           </div>
         </div>
         <p class="hero-mini">
-          Tick the checklist at night. Each user’s ticks are saved separately on their phone.
+          Ticks in the checklist are saved per user on this device.
         </p>
-      </div>
-    </section>
-
-    <!-- ROUTINE & MISSION -->
-    <section class="cards-row" id="routine">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">Our Mission</div>
-          <span class="tag">Mayank & Himanshu</span>
-        </div>
-        <p class="card-sub">
-          Two school friends, one board exam season. Instead of waiting for “motivation”,
-          we decided to build a small system and follow it daily.
-        </p>
-        <ul style="font-size:0.84rem; padding-left:18px; margin-bottom:6px;">
-          <li>Fix a clear daily routine and stick to it</li>
-          <li>Give each other mini-tests and discuss mistakes</li>
-          <li>Track points and declare a weekly winner</li>
-          <li>Stay honest – no fake checkmarks, no fake study</li>
-        </ul>
-        <p style="font-size:0.82rem; color:var(--text-muted);">
-          This is not coaching. It’s just a promise to future Mayank & Himanshu that
-          <strong>we did everything we could.</strong>
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">Daily Routine Template</div>
-          <span class="tag">Same structure, flexible subjects</span>
-        </div>
-        <p class="card-sub">
-          Follow this simple structure everyday. Only subjects / chapters change.
-        </p>
-        <div class="routine-list">
-          <div class="routine-item">
-            <h4>Morning • 5:00–7:00 AM</h4>
-            <span>Toughest subject • NCERT + examples</span>
-            <p>Fresh mind → heavy derivations, long numericals, tough theory.</p>
-          </div>
-          <div class="routine-item">
-            <h4>School</h4>
-            <span>Focus + Doubts</span>
-            <p>Listen properly, mark important questions, write all doubts for evening.</p>
-          </div>
-          <div class="routine-item">
-            <h4>Evening • 4:00–5:30 PM</h4>
-            <span>Practice time</span>
-            <p>PYQs / important questions from Subject 2. Timer ON, phone OUT.</p>
-          </div>
-          <div class="routine-item">
-            <h4>Night • 9:00–10:00 PM</h4>
-            <span>Revision + 10Q test</span>
-            <p>Quick revision, 10-question mini test, discuss mistakes, update scoreboard.</p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -745,14 +512,14 @@
         </table>
       </div>
 
-      <div class="card">
+      <div class="card" id="checklist">
         <div class="card-header">
           <div class="card-title">Daily Discipline Checklist</div>
           <span class="tag">Ticks saved per user</span>
         </div>
         <p class="card-sub">
-          Har raat sachai se tick karo. Mayank & Himanshu ke ticks
-          <strong>alag–alag</strong> save honge (per username / phone).
+          Har raat sachai se tick karo. Mayank &amp; Himanshu ke ticks
+          <strong>alag–alag</strong> save honge is device par.
         </p>
         <div class="checklist">
           <div class="check-row check-row-header">
@@ -762,23 +529,23 @@
           </div>
           <div class="check-row">
             <span>Morning study completed</span>
-            <label><input type="checkbox" class="js-check" /> Done</label>
-            <label><input type="checkbox" class="js-check" /> Done</label>
+            <label><input type="checkbox" class="task-check" /> Done</label>
+            <label><input type="checkbox" class="task-check" /> Done</label>
           </div>
           <div class="check-row">
             <span>School notes + doubts written</span>
-            <label><input type="checkbox" class="js-check" /> Done</label>
-            <label><input type="checkbox" class="js-check" /> Done</label>
+            <label><input type="checkbox" class="task-check" /> Done</label>
+            <label><input type="checkbox" class="task-check" /> Done</label>
           </div>
           <div class="check-row">
             <span>Evening practice / PYQs completed</span>
-            <label><input type="checkbox" class="js-check" /> Done</label>
-            <label><input type="checkbox" class="js-check" /> Done</label>
+            <label><input type="checkbox" class="task-check" /> Done</label>
+            <label><input type="checkbox" class="task-check" /> Done</label>
           </div>
           <div class="check-row">
-            <span>Night mini-test given & checked</span>
-            <label><input type="checkbox" class="js-check" /> Done</label>
-            <label><input type="checkbox" class="js-check" /> Done</label>
+            <span>Night mini-test given &amp; checked</span>
+            <label><input type="checkbox" class="task-check" /> Done</label>
+            <label><input type="checkbox" class="task-check" /> Done</label>
           </div>
         </div>
         <button id="resetChecksBtn" type="button" class="btn-ghost" style="margin-top:6px;">
@@ -790,4 +557,119 @@
       </div>
     </section>
 
-    <!-- WEEKL
+    <footer>
+      Built by Mayank &amp; Himanshu. Grow Together – Class 12 Board Mission.
+    </footer>
+  </div>
+
+  <script>
+    // ---- Days left (change examDateString as needed) ----
+    const examDateString = "2025-03-01";
+    (function () {
+      const span = document.getElementById("days-left");
+      if (!span) return;
+      const today = new Date();
+      const examDate = new Date(examDateString);
+      const diffMs = examDate - today;
+      const diffDays = Math.max(0, Math.round(diffMs / (1000 * 60 * 60 * 24)));
+      if (!Number.isNaN(diffDays)) span.textContent = diffDays;
+    })();
+
+    // ---- User + login logic ----
+    const USERS = {
+      mayank: { key: "mayank", displayName: "Mayank Pandey" },
+      himanshu: { key: "himanshu", displayName: "Himanshu Pal" },
+    };
+
+    let currentUserKey = null;
+
+    const loginOverlay = document.getElementById("loginOverlay");
+    const loginInput = document.getElementById("loginUsername");
+    const loginError = document.getElementById("loginError");
+    const loggedUserText = document.getElementById("loggedUserText");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    const scoreNameSelf = document.getElementById("scoreNameSelf");
+    const scoreNameFriend = document.getElementById("scoreNameFriend");
+    const tblSelfHead = document.getElementById("tblSelfHead");
+    const tblFriendHead = document.getElementById("tblFriendHead");
+    const checkNameSelf = document.getElementById("checkNameSelf");
+    const checkNameFriend = document.getElementById("checkNameFriend");
+
+    const checkboxes = document.querySelectorAll(".task-check");
+    const resetChecksBtn = document.getElementById("resetChecksBtn");
+
+    function getFriendKey(userKey) {
+      return userKey === "mayank" ? "himanshu" : "mayank";
+    }
+
+    function applyUserNames(userKey) {
+      const user = USERS[userKey];
+      const friend = USERS[getFriendKey(userKey)];
+      loggedUserText.textContent = user.displayName;
+      scoreNameSelf.textContent = user.displayName;
+      scoreNameFriend.textContent = friend.displayName;
+      tblSelfHead.textContent = user.displayName;
+      tblFriendHead.textContent = friend.displayName;
+      checkNameSelf.textContent = user.displayName;
+      checkNameFriend.textContent = friend.displayName;
+    }
+
+    function loadChecklistState() {
+      if (!currentUserKey) return;
+      const key = "gt_checks_" + currentUserKey;
+      const saved = localStorage.getItem(key);
+      let values = [];
+      if (saved) {
+        try { values = JSON.parse(saved); } catch (e) {}
+      }
+      checkboxes.forEach((cb, i) => { cb.checked = !!values[i]; });
+    }
+
+    function saveChecklistState() {
+      if (!currentUserKey) return;
+      const key = "gt_checks_" + currentUserKey;
+      const values = Array.from(checkboxes).map(cb => cb.checked);
+      localStorage.setItem(key, JSON.stringify(values));
+    }
+
+    // called from button / Enter key
+    function loginUser() {
+      const raw = (loginInput.value || "").trim().toLowerCase();
+      if (!USERS[raw]) {
+        loginError.textContent = "Use username: mayank or himanshu.";
+        return;
+      }
+      currentUserKey = raw;
+      localStorage.setItem("gt_current_user", currentUserKey);
+      loginError.textContent = "";
+      loginOverlay.style.display = "none";
+      applyUserNames(currentUserKey);
+      loadChecklistState();
+    }
+
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("gt_current_user");
+      currentUserKey = null;
+      checkboxes.forEach(cb => cb.checked = false);
+      loggedUserText.textContent = "–";
+      loginOverlay.style.display = "flex";
+      loginInput.value = "";
+      loginInput.focus();
+    });
+
+    checkboxes.forEach(cb => cb.addEventListener("change", saveChecklistState));
+
+    resetChecksBtn.addEventListener("click", () => {
+      if (!currentUserKey) return;
+      checkboxes.forEach(cb => cb.checked = false);
+      saveChecklistState();
+    });
+
+    // Auto login if user already chosen on this device
+    const savedUser = localStorage.getItem("gt_current_user");
+    if (savedUser && USERS[savedUser]) {
+      currentUserKey = savedUser;
+      loginOverlay.style.display = "none";
+      applyUserNames(currentUserKey);
+      loadChecklistS
