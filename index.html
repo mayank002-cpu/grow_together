@@ -434,18 +434,6 @@
       border-bottom: none;
     }
 
-    .two-cols {
-      display: grid;
-      gap: 12px;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    @media (max-width: 780px) {
-      .two-cols {
-        grid-template-columns: 1fr;
-      }
-    }
-
     .week-table {
       width: 100%;
       border-collapse: collapse;
@@ -477,11 +465,6 @@
     .badge-win {
       background: #dcfce7;
       color: #166534;
-    }
-
-    .badge-lose {
-      background: #fee2e2;
-      color: #b91c1c;
     }
 
     .badge-neutral {
@@ -654,7 +637,7 @@
         <div>
           <div class="hero-badge">
             <span>★</span>
-            <div>80 days • Two friends • One mission</div>
+            <div><span id="daysLeftText">80</span> days • Two friends • One mission</div>
           </div>
           <h1 class="hero-title">
             Beat <span class="hero-highlight">Boards Together</span>, not alone.
@@ -777,11 +760,11 @@
           </p>
           <div class="scoreboard-top">
             <div class="score-pill">
-              <span id="scoreName1">You</span>
+              <span id="scoreName1">Student 1</span>
               <span id="scoreVal1">0</span>
             </div>
             <div class="score-pill">
-              <span id="scoreName2">Friend</span>
+              <span id="scoreName2">Student 2</span>
               <span id="scoreVal2">0</span>
             </div>
           </div>
@@ -789,7 +772,8 @@
             No leader yet – start earning points today.
           </p>
           <div class="score-actions">
-            <button class="btn-ghost" onclick="changeScore(1,10)">+10 Daily target</button>
+            <button class="btn-ghost" onclick="changeScore(1,10)">+10 Daily target (1)</button>
+            <button class="btn-ghost" onclick="changeScore(2,10)">+10 Daily target (2)</button>
             <button class="btn-ghost" onclick="changeScore(1,20)">+20 Test win (1)</button>
             <button class="btn-ghost" onclick="changeScore(2,20)">+20 Test win (2)</button>
             <button class="btn-ghost" onclick="changeScore(1,-10)">–10 Miss (1)</button>
@@ -814,5 +798,9 @@
           <div class="checklist">
             <div class="check-row check-row-header">
               <span>Task</span>
-              <span id="checkName1">You</span>
-              <span id="checkName2">Friend</span
+              <span id="checkName1">Student 1</span>
+              <span id="checkName2">Student 2</span>
+            </div>
+            <div class="check-row">
+              <span>Morning study completed</span>
+              <label><input type="c
