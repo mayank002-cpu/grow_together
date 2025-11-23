@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Grow Together – Class 12 Study Partner System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f3f7f2;
+      --primary: #16a34a; /* green */
+      --primary-soft: #dcfce7;
+      --accent: #facc15;  /* yellow */
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --card-bg: #ffffff;
+      --border-soft: #e5e7eb;
+      --danger: #ef4444;
+      --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --radius-lg: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #fef9c3 0, #f3f7f2 40%, #ecfeff 100%);
+      color: var(--text-main);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 6px 14px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, #22c55e, #facc15, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #022c22;
+      font-weight: 800;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .logo-text-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .logo-text-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    nav a:hover {
+      background: rgba(22, 163, 74, 0.08);
+      border-color: rgba(22, 163, 74, 0.3);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: rgba(250, 204, 21, 0.1);
+      border: 1px solid rgba(250, 204, 21, 0.8);
+      color: #854d0e;
+    }
+
+    .btn-outline:hover {
+      background: rgba(250, 204, 21, 0.2);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(250, 204, 21, 0.15));
+      border-radius: 26px;
+      padding: 18px 18px 18px;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: 1.6fr 1.4fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      margin-bottom: 8px;
+      border: 1px solid rgba(22, 163, 74, 0.2);
+    }
+
+    .hero-badge span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #bbf7d0;
+      font-size: 0.7rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .hero-highlight {
+      color: #166534;
+    }
+
+    .hero-subtitle {
+      font-size: 0.97rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .hero-mini {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-right {
+      background: rgba(255,255,255,0.96);
+      border-radius: 20px;
+      padding: 10px 12px 12px;
+      border: 1px solid var(--border-soft);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-right-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-chip {
+      font-size: 0.72rem;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #fef9c3;
+      color: #854d0e;
+    }
+
+    .hero-right-grid {
+      display: grid;
+      gap: 6px;
+      font-size: 0.78rem;
+      margin-bottom: 6px;
+    }
+
+    .hero-entry {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 6px;
+      background: #f9fafb;
+      border-radius: 10px;
+    }
+
+    .hero-entry span:first-child {
+      font-weight: 500;
+    }
+
+    .hero-progress {
+      margin-top: 4px;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .hero-progress-bar {
+      height: 6px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+      margin-top: 3px;
+    }
+
+    .hero-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: #22c55e;
+      transition: width 0.25s ease;
+    }
+
+    .hero-footer {
+      margin-top: 6px;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .cards-row {
+      display: grid;
+      grid-template-columns: 1.4fr 1.6fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .cards-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 12px 13px 12px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148,163,184,0.25);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-tag {
+      font-size: 0.72rem;
+      padding: 1px 7px;
+      border-radius: 999px;
+      background: #ecfeff;
+      color: #0369a1;
+    }
+
+    .card-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .routine-list {
+      font-size: 0.85rem;
+      display: grid;
+      gap: 6px;
+    }
+
+    .routine-item {
+      padding: 6px 7px;
+      border-radius: 10px;
+      background: #f9fafb;
+      border: 1px dashed var(--border-soft);
+    }
+
+    .routine-item h4 {
+      font-size: 0.86rem;
+      margin-bottom: 2px;
+    }
+
+    .routine-item span {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .routine-item p {
+      font-size: 0.8rem;
+    }
+
+    .scoreboard-top {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+    }
+
+    .score-pill {
+      border-radius: 999px;
+      background: var(--primary-soft);
+      padding: 7px 9px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .score-pill span:first-child {
+      font-weight: 600;
+    }
+
+    .score-leader {
+      font-size: 0.8rem;
+      margin-bottom: 5px;
+      color: #15803d;
+    }
+
+    .score-leader.tie {
+      color: #ea580c;
+    }
+
+    .score-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .btn-ghost {
+      background: #f3f4f6;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      font-size: 0.8rem;
+      padding: 4px 9px;
+      cursor: pointer;
+    }
+
+    .btn-ghost:hover {
+      background: #e5e7eb;
+    }
+
+    .score-log {
+      max-height: 120px;
+      overflow-y: auto;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      padding: 5px 7px;
+      font-size: 0.78rem;
+      background: #f9fafb;
+    }
+
+    .score-log-entry {
+      padding: 2px 0;
+      border-bottom: 1px dotted #e5e7eb;
+    }
+
+    .score-log-entry:last-child {
+      border-bottom: none;
+    }
+
+    .two-cols {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: 780px) {
+      .two-cols {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .week-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      margin-top: 4px;
+    }
+
+    .week-table th,
+    .week-table td {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 4px 3px;
+      text-align: left;
+    }
+
+    .week-table th {
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1px 6px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+    }
+
+    .badge-win {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .badge-lose {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .badge-neutral {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .section {
+      margin-top: 8px;
+    }
+
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .section-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    .checklist {
+      font-size: 0.8rem;
+      display: grid;
+      gap: 4px;
+    }
+
+    .check-row {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(2, 0.8fr);
+      gap: 4px;
+      align-items: center;
+    }
+
+    .check-row-header span {
+      font-weight: 600;
+    }
+
+    .check-row label {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.78rem;
+    }
+
+    .progress {
+      font-size: 0.78rem;
+      margin-top: 4px;
+      color: var(--text-muted);
+    }
+
+    .progress-bar {
+      height: 5px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: #22c55e;
+      transition: width 0.2s ease;
+    }
+
+    textarea,
+    input[type="text"],
+    input[type="number"],
+    input[type="date"] {
+      width: 100%;
+      padding: 6px 7px;
+      border-radius: 9px;
+      border: 1px solid #d4d4d8;
+      font-size: 0.8rem;
+      background: #f9fafb;
+      outline: none;
+      margin-top: 3px;
+      margin-bottom: 5px;
+    }
+
+    textarea:focus,
+    input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.16);
+      background: #ffffff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .mini-form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .mini-form-row-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    table {
+      font-size: 0.78rem;
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 5px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 4px 3px;
+      text-align: left;
+    }
+
+    th {
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    footer {
+      margin-top: 16px;
+      font-size: 0.76rem;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        <div class="logo-mark">GT</div>
+        <div>
+          <div class="logo-text-title">Grow Together</div>
+          <div class="logo-text-sub">Class 12 Board Study Partner System</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#mission">Mission</a>
+        <a href="#routine">Routine</a>
+        <a href="#scoreboard">Scoreboard</a>
+        <a href="#weekly">Weekly Targets</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#resources">Resources</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="top">
+        <div>
+          <div class="hero-badge">
+            <span>★</span>
+            <div>80 days • Two friends • One mission</div>
+          </div>
+          <h1 class="hero-title">
+            Beat <span class="hero-highlight">Boards Together</span>, not alone.
+          </h1>
+          <p class="hero-subtitle">
+            This is our private HQ to track daily routine, mini-tests, scores and weekly targets.
+            No excuses, no fake study – just honest growth and friendly competition.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="scrollToSection('dashboard')">
+              Open Study Dashboard
+            </button>
+            <button class="btn btn-outline" onclick="scrollToSection('routine')">
+              View Daily Routine
+            </button>
+          </div>
+          <p class="hero-mini">
+            “One day missed = two days lost.” We promise each other to show up every single day.
+          </p>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-right-title">
+            <span>Today’s Snapshot</span>
+            <span class="hero-chip">Live between you & your friend</span>
+          </div>
+          <div class="hero-right-grid">
+            <div class="hero-entry">
+              <span>Morning Study</span>
+              <span id="heroMorning">Pending</span>
+            </div>
+            <div class="hero-entry">
+              <span>Evening Practice</span>
+              <span id="heroEvening">Pending</span>
+            </div>
+            <div class="hero-entry">
+              <span>Night Mini-Test</span>
+              <span id="heroTest">Pending</span>
+            </div>
+          </div>
+          <div class="hero-progress">
+            Daily completion: <span id="heroProgressText">0%</span>
+            <div class="hero-progress-bar">
+              <div id="heroProgressFill" class="hero-progress-fill"></div>
+            </div>
+          </div>
+          <div class="hero-footer">
+            <span id="heroLeaderText">Start your day strong and let the scoreboard talk at night.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- MISSION + ROUTINE -->
+      <section class="cards-row" id="mission">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Why We Built Grow Together</div>
+            <span class="card-tag">Our Mission</span>
+          </div>
+          <p class="card-subtitle">
+            We are two Class 12 students who decided to treat board exam preparation like a team sport.
+          </p>
+          <p style="font-size:0.86rem; margin-bottom:6px;">
+            Instead of just saying “kal se padhenge”, we created a system that forces us to:
+          </p>
+          <ul style="padding-left:18px; font-size:0.85rem; margin-bottom:6px;">
+            <li>Fix a clear daily routine</li>
+            <li>Give each other mini-tests</li>
+            <li>Track our points and progress honestly</li>
+            <li>Review weekly targets and adjust</li>
+          </ul>
+          <p style="font-size:0.82rem; color:var(--text-muted);">
+            This website is not a coaching or institute. It’s just our promise to future us:
+            <strong>we did everything we could.</strong>
+          </p>
+        </div>
+
+        <div class="card" id="routine">
+          <div class="card-header">
+            <div class="card-title">Daily Routine Template</div>
+            <span class="card-tag">No Confusion</span>
+          </div>
+          <p class="card-subtitle">
+            Same structure every day. Only subjects and chapters change.
+          </p>
+          <div class="routine-list">
+            <div class="routine-item">
+              <h4>Morning • 5:00 – 7:00 AM</h4>
+              <span>Toughest subject • NCERT • examples</span>
+              <p>Fresh mind for the heaviest topics, derivations or big numericals.</p>
+            </div>
+            <div class="routine-item">
+              <h4>School Time</h4>
+              <span>Focus + Doubts</span>
+              <p>Listen properly, mark important questions, and write all doubts for evening.</p>
+            </div>
+            <div class="routine-item">
+              <h4>Evening • 4:00 – 5:30 PM</h4>
+              <span>Practice session</span>
+              <p>PYQs, numericals, important questions from Subject 2. Timer ON, phone OFF.</p>
+            </div>
+            <div class="routine-item">
+              <h4>Night • 9:00 – 10:00 PM</h4>
+              <span>Revision + 10Q mini-test</span>
+              <p>Quick revision, 10-question test, discuss mistakes, update scoreboard.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCOREBOARD + CHECKLIST -->
+      <section class="cards-row" id="scoreboard">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Scoreboard & Rules</div>
+            <span class="card-tag">Friendly Competition</span>
+          </div>
+          <p class="card-subtitle">
+            Use points to keep the competition fun and serious. Higher weekly score = winner.
+          </p>
+          <div class="scoreboard-top">
+            <div class="score-pill">
+              <span id="scoreName1">You</span>
+              <span id="scoreVal1">0</span>
+            </div>
+            <div class="score-pill">
+              <span id="scoreName2">Friend</span>
+              <span id="scoreVal2">0</span>
+            </div>
+          </div>
+          <p id="scoreLeaderText" class="score-leader">
+            No leader yet – start earning points today.
+          </p>
+          <div class="score-actions">
+            <button class="btn-ghost" onclick="changeScore(1,10)">+10 Daily target</button>
+            <button class="btn-ghost" onclick="changeScore(1,20)">+20 Test win (1)</button>
+            <button class="btn-ghost" onclick="changeScore(2,20)">+20 Test win (2)</button>
+            <button class="btn-ghost" onclick="changeScore(1,-10)">–10 Miss (1)</button>
+            <button class="btn-ghost" onclick="changeScore(2,-10)">–10 Miss (2)</button>
+            <button class="btn-ghost" onclick="resetScores()">Reset</button>
+          </div>
+          <p class="section-text">
+            Points system (default): +10 daily target, +20 test winner, +5 help, –10 miss, –5 late.
+            You can also add manual entries below.
+          </p>
+          <div class="score-log" id="scoreLog"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Daily Discipline Checklist</div>
+            <span class="card-tag">Both Partners</span>
+          </div>
+          <p class="card-subtitle">
+            Tick honestly at night for both of you. This drives the hero snapshot on top.
+          </p>
+          <div class="checklist">
+            <div class="check-row check-row-header">
+              <span>Task</span>
+              <span id="checkName1">You</span>
+              <span id="checkName2">Friend</span
