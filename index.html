@@ -1,28 +1,21 @@
 <!DOCTYPE html>
-let student1Name = prompt("Enter Student 1 Name:") || "Student 1";
-let student2Name = prompt("Enter Student 2 Name:") || "Student 2";
-
-document.getElementById("scoreName1").textContent = student1Name;
-document.getElementById("scoreName2").textContent = student2Name;
-document.getElementById("checkName1").textContent = student1Name;
-document.getElementById("checkName2").textContent = student2Name;
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Grow Together – Class 12 Study Partner System</title>
+  <title>Grow Together – Class 12 Study Partner</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #f3f7f2;
-      --primary: #16a34a; /* green */
+      --bg: #f3f4f6;
+      --bg-soft: #fefce8;
+      --primary: #16a34a;
       --primary-soft: #dcfce7;
-      --accent: #facc15;  /* yellow */
+      --accent: #facc15;
       --text-main: #111827;
       --text-muted: #6b7280;
       --card-bg: #ffffff;
-      --border-soft: #e5e7eb;
-      --danger: #ef4444;
-      --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --border: #e5e7eb;
+      --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
       --radius-lg: 18px;
     }
 
@@ -35,40 +28,40 @@ document.getElementById("checkName2").textContent = student2Name;
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      background: radial-gradient(circle at top left, #fef9c3 0, #f3f7f2 40%, #ecfeff 100%);
+      background: radial-gradient(circle at top left, #fef3c7 0, #f3f4f6 40%, #e0f2fe 100%);
       color: var(--text-main);
       line-height: 1.5;
-      min-height: 100vh;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
     .page {
-      max-width: 1120px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 16px 16px 40px;
     }
 
+    /* HEADER */
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      padding: 8px 6px 14px;
+      padding: 6px 2px 16px;
     }
 
-    .logo {
+    .logo-wrap {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .logo-mark {
-      width: 36px;
-      height: 36px;
+    .logo-circle {
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background: conic-gradient(from 180deg, #22c55e, #facc15, #22c55e);
       display: flex;
@@ -76,13 +69,12 @@ document.getElementById("checkName2").textContent = student2Name;
       justify-content: center;
       color: #022c22;
       font-weight: 800;
-      font-size: 1.1rem;
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow);
     }
 
-    .logo-text-title {
-      font-weight: 700;
+    .logo-text-main {
       font-size: 1.2rem;
+      font-weight: 700;
     }
 
     .logo-text-sub {
@@ -106,32 +98,28 @@ document.getElementById("checkName2").textContent = student2Name;
 
     nav a:hover {
       background: rgba(22, 163, 74, 0.08);
-      border-color: rgba(22, 163, 74, 0.3);
+      border-color: rgba(22, 163, 74, 0.2);
     }
 
+    /* BUTTONS */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      padding: 7px 14px;
+      gap: 4px;
+      padding: 8px 14px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
       font-size: 0.9rem;
       font-weight: 600;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
       white-space: nowrap;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, #22c55e, #16a34a);
-      color: white;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
+      color: #fff;
+      box-shadow: var(--shadow);
     }
 
     .btn-outline {
@@ -140,53 +128,51 @@ document.getElementById("checkName2").textContent = student2Name;
       color: #854d0e;
     }
 
-    .btn-outline:hover {
-      background: rgba(250, 204, 21, 0.2);
+    .btn-ghost {
+      background: #f3f4f6;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      cursor: pointer;
     }
 
-    main {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
+    .btn-ghost:hover {
+      background: #e5e7eb;
     }
 
+    /* HERO */
     .hero {
-      background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(250, 204, 21, 0.15));
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(250, 204, 21, 0.16));
       border-radius: 26px;
-      padding: 18px 18px 18px;
-      box-shadow: var(--shadow-soft);
+      padding: 18px;
+      box-shadow: var(--shadow);
       display: grid;
       grid-template-columns: 1.6fr 1.4fr;
-      gap: 14px;
-      align-items: center;
-    }
-
-    @media (max-width: 850px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
+      gap: 16px;
+      margin-bottom: 18px;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255, 255, 255, 0.95);
+      background: #ffffff;
       padding: 4px 9px;
       border-radius: 999px;
-      font-size: 0.78rem;
+      border: 1px solid rgba(22, 163, 74, 0.25);
+      font-size: 0.8rem;
       margin-bottom: 8px;
-      border: 1px solid rgba(22, 163, 74, 0.2);
     }
 
-    .hero-badge span {
+    .hero-badge span.star {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #bbf7d0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: #bbf7d0;
       font-size: 0.7rem;
     }
 
@@ -196,12 +182,12 @@ document.getElementById("checkName2").textContent = student2Name;
       margin-bottom: 6px;
     }
 
-    .hero-highlight {
+    .hero-title span {
       color: #166534;
     }
 
-    .hero-subtitle {
-      font-size: 0.97rem;
+    .hero-sub {
+      font-size: 0.95rem;
       color: var(--text-muted);
       margin-bottom: 12px;
     }
@@ -210,24 +196,23 @@ document.getElementById("checkName2").textContent = student2Name;
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    .hero-mini {
+    .hero-note {
       font-size: 0.8rem;
       color: var(--text-muted);
     }
 
     .hero-right {
-      background: rgba(255,255,255,0.96);
+      background: #ffffff;
       border-radius: 20px;
-      padding: 10px 12px 12px;
-      border: 1px solid var(--border-soft);
-      backdrop-filter: blur(6px);
+      padding: 12px;
+      border: 1px solid var(--border);
     }
 
     .hero-right-title {
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       font-weight: 600;
       margin-bottom: 6px;
       display: flex;
@@ -235,7 +220,7 @@ document.getElementById("checkName2").textContent = student2Name;
       align-items: center;
     }
 
-    .hero-chip {
+    .chip {
       font-size: 0.72rem;
       padding: 2px 7px;
       border-radius: 999px;
@@ -243,65 +228,51 @@ document.getElementById("checkName2").textContent = student2Name;
       color: #854d0e;
     }
 
-    .hero-right-grid {
+    .hero-grid {
       display: grid;
       gap: 6px;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       margin-bottom: 6px;
     }
 
-    .hero-entry {
+    .hero-row {
       display: flex;
       justify-content: space-between;
-      padding: 4px 6px;
       background: #f9fafb;
       border-radius: 10px;
+      padding: 5px 7px;
     }
 
-    .hero-entry span:first-child {
+    .hero-row span:first-child {
       font-weight: 500;
     }
 
-    .hero-progress {
-      margin-top: 4px;
+    .hero-mini {
       font-size: 0.76rem;
       color: var(--text-muted);
     }
 
-    .hero-progress-bar {
-      height: 6px;
-      border-radius: 999px;
-      background: #e5e7eb;
-      overflow: hidden;
-      margin-top: 3px;
-    }
-
-    .hero-progress-fill {
-      height: 100%;
-      width: 0%;
-      background: #22c55e;
-      transition: width 0.25s ease;
-    }
-
-    .hero-footer {
-      margin-top: 6px;
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 6px;
-      align-items: center;
-    }
-
+    /* LAYOUT CARDS */
     .cards-row {
       display: grid;
       grid-template-columns: 1.4fr 1.6fr;
-      gap: 14px;
+      gap: 16px;
+      margin-bottom: 16px;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
       .cards-row {
         grid-template-columns: 1fr;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        justify-content: flex-start;
       }
     }
 
@@ -309,42 +280,40 @@ document.getElementById("checkName2").textContent = student2Name;
       background: var(--card-bg);
       border-radius: var(--radius-lg);
       padding: 12px 13px 12px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148,163,184,0.25);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(148, 163, 184, 0.25);
     }
 
     .card-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       gap: 8px;
+      align-items: center;
       margin-bottom: 8px;
     }
 
     .card-title {
       font-size: 1rem;
       font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
 
-    .card-tag {
+    .tag {
       font-size: 0.72rem;
-      padding: 1px 7px;
+      padding: 2px 7px;
       border-radius: 999px;
-      background: #ecfeff;
+      background: #e0f2fe;
       color: #0369a1;
     }
 
-    .card-subtitle {
-      font-size: 0.82rem;
+    .card-sub {
+      font-size: 0.84rem;
       color: var(--text-muted);
       margin-bottom: 8px;
     }
 
+    /* ROUTINE */
     .routine-list {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       display: grid;
       gap: 6px;
     }
@@ -353,7 +322,7 @@ document.getElementById("checkName2").textContent = student2Name;
       padding: 6px 7px;
       border-radius: 10px;
       background: #f9fafb;
-      border: 1px dashed var(--border-soft);
+      border: 1px dashed var(--border);
     }
 
     .routine-item h4 {
@@ -366,15 +335,12 @@ document.getElementById("checkName2").textContent = student2Name;
       color: var(--text-muted);
     }
 
-    .routine-item p {
-      font-size: 0.8rem;
-    }
-
+    /* SCOREBOARD */
     .scoreboard-top {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       margin-bottom: 6px;
     }
 
@@ -385,125 +351,51 @@ document.getElementById("checkName2").textContent = student2Name;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 6px;
     }
 
     .score-pill span:first-child {
       font-weight: 600;
     }
 
-    .score-leader {
+    .score-status {
       font-size: 0.8rem;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
       color: #15803d;
     }
 
-    .score-leader.tie {
+    .score-status.tie {
       color: #ea580c;
     }
 
-    .score-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 6px;
-    }
-
-    .btn-ghost {
-      background: #f3f4f6;
-      border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      font-size: 0.8rem;
-      padding: 4px 9px;
-      cursor: pointer;
-    }
-
-    .btn-ghost:hover {
-      background: #e5e7eb;
-    }
-
-    .score-log {
-      max-height: 120px;
-      overflow-y: auto;
-      border-radius: 10px;
-      border: 1px solid #e5e7eb;
-      padding: 5px 7px;
-      font-size: 0.78rem;
-      background: #f9fafb;
-    }
-
-    .score-log-entry {
-      padding: 2px 0;
-      border-bottom: 1px dotted #e5e7eb;
-    }
-
-    .score-log-entry:last-child {
-      border-bottom: none;
-    }
-
-    .week-table {
+    .score-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.78rem;
       margin-top: 4px;
     }
 
-    .week-table th,
-    .week-table td {
-      border-bottom: 1px solid #e5e7eb;
+    .score-table th,
+    .score-table td {
       padding: 4px 3px;
+      border-bottom: 1px solid #e5e7eb;
       text-align: left;
     }
 
-    .week-table th {
+    .score-table th {
       font-weight: 600;
       color: #4b5563;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1px 6px;
-      border-radius: 999px;
-      font-size: 0.7rem;
-    }
-
-    .badge-win {
-      background: #dcfce7;
-      color: #166534;
-    }
-
-    .badge-neutral {
-      background: #e0f2fe;
-      color: #0369a1;
-    }
-
-    .section {
-      margin-top: 8px;
-    }
-
-    .section-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .section-text {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 5px;
-    }
-
+    /* CHECKLIST */
     .checklist {
       font-size: 0.8rem;
       display: grid;
-      gap: 4px;
+      gap: 6px;
     }
 
     .check-row {
       display: grid;
-      grid-template-columns: 1.4fr repeat(2, 0.8fr);
+      grid-template-columns: 1.3fr repeat(2, 0.9fr);
       gap: 4px;
       align-items: center;
     }
@@ -519,100 +411,49 @@ document.getElementById("checkName2").textContent = student2Name;
       font-size: 0.78rem;
     }
 
-    .progress {
+    /* WEEK TABLE */
+    .week-table {
+      width: 100%;
+      border-collapse: collapse;
       font-size: 0.78rem;
       margin-top: 4px;
-      color: var(--text-muted);
     }
 
-    .progress-bar {
-      height: 5px;
-      border-radius: 999px;
-      background: #e5e7eb;
-      overflow: hidden;
-      margin-top: 2px;
+    .week-table th,
+    .week-table td {
+      padding: 4px 3px;
+      border-bottom: 1px solid #e5e7eb;
     }
 
-    .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: #22c55e;
-      transition: width 0.2s ease;
+    .week-table th {
+      font-weight: 600;
+      color: #4b5563;
     }
 
-    textarea,
-    input[type="text"],
-    input[type="number"],
-    input[type="date"] {
+    textarea {
       width: 100%;
       padding: 6px 7px;
-      border-radius: 9px;
+      border-radius: 10px;
       border: 1px solid #d4d4d8;
       font-size: 0.8rem;
       background: #f9fafb;
-      outline: none;
-      margin-top: 3px;
-      margin-bottom: 5px;
+      resize: vertical;
+      min-height: 70px;
+      margin-bottom: 6px;
     }
 
-    textarea:focus,
-    input:focus {
+    textarea:focus {
+      outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.16);
       background: #ffffff;
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 70px;
-    }
-
-    .mini-form-row {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 6px;
-    }
-
-    .mini-form-row-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 6px;
-    }
-
-    table {
-      font-size: 0.78rem;
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 5px;
-    }
-
-    th,
-    td {
-      border-bottom: 1px solid #e5e7eb;
-      padding: 4px 3px;
-      text-align: left;
-    }
-
-    th {
-      font-weight: 600;
-      color: #4b5563;
-    }
-
     footer {
-      margin-top: 16px;
-      font-size: 0.76rem;
+      margin-top: 18px;
+      font-size: 0.78rem;
       text-align: center;
       color: var(--text-muted);
-    }
-
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav {
-        justify-content: flex-start;
-      }
     }
   </style>
 </head>
@@ -620,194 +461,314 @@ document.getElementById("checkName2").textContent = student2Name;
   <div class="page">
     <!-- HEADER -->
     <header>
-      <div class="logo">
-        <div class="logo-mark">GT</div>
+      <div class="logo-wrap">
+        <div class="logo-circle">GT</div>
         <div>
-          <div class="logo-text-title">Grow Together</div>
+          <div class="logo-text-main">Grow Together</div>
           <div class="logo-text-sub">Class 12 Board Study Partner System</div>
         </div>
       </div>
       <nav>
-        <a href="#mission">Mission</a>
         <a href="#routine">Routine</a>
         <a href="#scoreboard">Scoreboard</a>
         <a href="#weekly">Weekly Targets</a>
         <a href="#dashboard">Dashboard</a>
-        <a href="#resources">Resources</a>
-        <a href="#about">About</a>
       </nav>
     </header>
 
-    <main>
-      <!-- HERO -->
-      <section class="hero" id="top">
-        <div>
-          <div class="hero-badge">
-            <span>★</span>
-            <div><span id="daysLeftText">80</span> days • Two friends • One mission</div>
-          </div>
-          <h1 class="hero-title">
-            Beat <span class="hero-highlight">Boards Together</span>, not alone.
-          </h1>
-          <p class="hero-subtitle">
-            This is our private HQ to track daily routine, mini-tests, scores and weekly targets.
-            No excuses, no fake study – just honest growth and friendly competition.
-          </p>
-          <div class="hero-actions">
-            <button class="btn btn-primary" onclick="scrollToSection('dashboard')">
-              Open Study Dashboard
-            </button>
-            <button class="btn btn-outline" onclick="scrollToSection('routine')">
-              View Daily Routine
-            </button>
-          </div>
-          <p class="hero-mini">
-            “One day missed = two days lost.” We promise each other to show up every single day.
-          </p>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-badge">
+          <span class="star">★</span>
+          <span><span id="days-left">80</span> days • Two friends • One mission</span>
         </div>
+        <h1 class="hero-title">
+          Beat <span>Boards Together</span>, not alone.
+        </h1>
+        <p class="hero-sub">
+          This is our private HQ to track routine, mini-tests, scores and weekly targets.
+          No excuses, no fake study – only honest growth and friendly competition.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="document.getElementById('dashboard').scrollIntoView({behavior:'smooth'})">
+            Open Study Dashboard
+          </button>
+          <button class="btn btn-outline" onclick="document.getElementById('routine').scrollIntoView({behavior:'smooth'})">
+            View Daily Routine
+          </button>
+        </div>
+        <p class="hero-note">
+          “One day missed = two days lost.” We promise each other to show up every single day.
+        </p>
+      </div>
 
-        <div class="hero-right">
-          <div class="hero-right-title">
-            <span>Today’s Snapshot</span>
-            <span class="hero-chip">Live between you & your friend</span>
+      <div class="hero-right">
+        <div class="hero-right-title">
+          <span>Today at a Glance</span>
+          <span class="chip">Between you & your friend</span>
+        </div>
+        <div class="hero-grid">
+          <div class="hero-row">
+            <span>Morning Study</span><span>NCERT + Toughest subject</span>
           </div>
-          <div class="hero-right-grid">
-            <div class="hero-entry">
-              <span>Morning Study</span>
-              <span id="heroMorning">Pending</span>
-            </div>
-            <div class="hero-entry">
-              <span>Evening Practice</span>
-              <span id="heroEvening">Pending</span>
-            </div>
-            <div class="hero-entry">
-              <span>Night Mini-Test</span>
-              <span id="heroTest">Pending</span>
-            </div>
+          <div class="hero-row">
+            <span>Evening Practice</span><span>PYQs / numericals</span>
           </div>
-          <div class="hero-progress">
-            Daily completion: <span id="heroProgressText">0%</span>
-            <div class="hero-progress-bar">
-              <div id="heroProgressFill" class="hero-progress-fill"></div>
-            </div>
-          </div>
-          <div class="hero-footer">
-            <span id="heroLeaderText">Start your day strong and let the scoreboard talk at night.</span>
+          <div class="hero-row">
+            <span>Night Mini-test</span><span>10 questions + analysis</span>
           </div>
         </div>
-      </section>
+        <p class="hero-mini">
+          Fill the checklist at night and update the scoreboard honestly.
+        </p>
+      </div>
+    </section>
 
-      <!-- MISSION + ROUTINE -->
-      <section class="cards-row" id="mission">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">Why We Built Grow Together</div>
-            <span class="card-tag">Our Mission</span>
-          </div>
-          <p class="card-subtitle">
-            We are two Class 12 students who decided to treat board exam preparation like a team sport.
-          </p>
-          <p style="font-size:0.86rem; margin-bottom:6px;">
-            Instead of just saying “kal se padhenge”, we created a system that forces us to:
-          </p>
-          <ul style="padding-left:18px; font-size:0.85rem; margin-bottom:6px;">
-            <li>Fix a clear daily routine</li>
-            <li>Give each other mini-tests</li>
-            <li>Track our points and progress honestly</li>
-            <li>Review weekly targets and adjust</li>
-          </ul>
-          <p style="font-size:0.82rem; color:var(--text-muted);">
-            This website is not a coaching or institute. It’s just our promise to future us:
-            <strong>we did everything we could.</strong>
-          </p>
+    <!-- ROUTINE & MISSION -->
+    <section class="cards-row" id="routine">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Our Mission</div>
+          <span class="tag">Why this site exists</span>
         </div>
+        <p class="card-sub">
+          Two friends, one board exam season. We decided to treat preparation like a team sport
+          instead of a solo fight.
+        </p>
+        <ul style="font-size:0.84rem; padding-left:18px; margin-bottom:6px;">
+          <li>Fix a clear daily routine and stick to it</li>
+          <li>Give each other mini-tests and check copies</li>
+          <li>Track scores and declare a weekly winner</li>
+          <li>Stay honest – no fake checkmarks, no fake study</li>
+        </ul>
+        <p style="font-size:0.82rem; color:var(--text-muted);">
+          This website is not coaching. It is just our promise to future us that
+          <strong>we did everything we could.</strong>
+        </p>
+      </div>
 
-        <div class="card" id="routine">
-          <div class="card-header">
-            <div class="card-title">Daily Routine Template</div>
-            <span class="card-tag">No Confusion</span>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Daily Routine Template</div>
+          <span class="tag">Same structure, flexible subjects</span>
+        </div>
+        <p class="card-sub">
+          Follow this simple structure everyday. Only subjects / chapters change.
+        </p>
+        <div class="routine-list">
+          <div class="routine-item">
+            <h4>Morning • 5:00–7:00 AM</h4>
+            <span>Toughest subject • NCERT + examples</span>
+            <p>Fresh mind → heavy derivations, long numericals, tough theory.</p>
           </div>
-          <p class="card-subtitle">
-            Same structure every day. Only subjects and chapters change.
-          </p>
-          <div class="routine-list">
-            <div class="routine-item">
-              <h4>Morning • 5:00 – 7:00 AM</h4>
-              <span>Toughest subject • NCERT • examples</span>
-              <p>Fresh mind for the heaviest topics, derivations or big numericals.</p>
-            </div>
-            <div class="routine-item">
-              <h4>School Time</h4>
-              <span>Focus + Doubts</span>
-              <p>Listen properly, mark important questions, and write all doubts for evening.</p>
-            </div>
-            <div class="routine-item">
-              <h4>Evening • 4:00 – 5:30 PM</h4>
-              <span>Practice session</span>
-              <p>PYQs, numericals, important questions from Subject 2. Timer ON, phone OFF.</p>
-            </div>
-            <div class="routine-item">
-              <h4>Night • 9:00 – 10:00 PM</h4>
-              <span>Revision + 10Q mini-test</span>
-              <p>Quick revision, 10-question test, discuss mistakes, update scoreboard.</p>
-            </div>
+          <div class="routine-item">
+            <h4>School</h4>
+            <span>Focus + Doubts</span>
+            <p>Listen properly, mark important questions, note all doubts.</p>
+          </div>
+          <div class="routine-item">
+            <h4>Evening • 4:00–5:30 PM</h4>
+            <span>Practice time</span>
+            <p>PYQs / important questions from Subject 2. Timer ON, phone OUT.</p>
+          </div>
+          <div class="routine-item">
+            <h4>Night • 9:00–10:00 PM</h4>
+            <span>Revision + 10Q test</span>
+            <p>Quick revision + mini-test + discuss mistakes + update scoreboard.</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- SCOREBOARD + CHECKLIST -->
-      <section class="cards-row" id="scoreboard">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">Scoreboard & Rules</div>
-            <span class="card-tag">Friendly Competition</span>
-          </div>
-          <p class="card-subtitle">
-            Use points to keep the competition fun and serious. Higher weekly score = winner.
-          </p>
-          <div class="scoreboard-top">
-            <div class="score-pill">
-              <span id="scoreName1">Student 1</span>
-              <span id="scoreVal1">0</span>
-            </div>
-            <div class="score-pill">
-              <span id="scoreName2">Student 2</span>
-              <span id="scoreVal2">0</span>
-            </div>
-          </div>
-          <p id="scoreLeaderText" class="score-leader">
-            No leader yet – start earning points today.
-          </p>
-          <div class="score-actions">
-            <button class="btn-ghost" onclick="changeScore(1,10)">+10 Daily target (1)</button>
-            <button class="btn-ghost" onclick="changeScore(2,10)">+10 Daily target (2)</button>
-            <button class="btn-ghost" onclick="changeScore(1,20)">+20 Test win (1)</button>
-            <button class="btn-ghost" onclick="changeScore(2,20)">+20 Test win (2)</button>
-            <button class="btn-ghost" onclick="changeScore(1,-10)">–10 Miss (1)</button>
-            <button class="btn-ghost" onclick="changeScore(2,-10)">–10 Miss (2)</button>
-            <button class="btn-ghost" onclick="resetScores()">Reset</button>
-          </div>
-          <p class="section-text">
-            Points system (default): +10 daily target, +20 test winner, +5 help, –10 miss, –5 late.
-            You can also add manual entries below.
-          </p>
-          <div class="score-log" id="scoreLog"></div>
+    <!-- SCOREBOARD & CHECKLIST -->
+    <section class="cards-row" id="scoreboard">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Scoreboard</div>
+          <span class="tag">Friendly competition</span>
         </div>
-
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">Daily Discipline Checklist</div>
-            <span class="card-tag">Both Partners</span>
+        <p class="card-sub">
+          Write points manually at night. Higher weekly score = winner.
+        </p>
+        <div class="scoreboard-top">
+          <div class="score-pill">
+            <span>Your Name</span>
+            <span>____ pts</span>
           </div>
-          <p class="card-subtitle">
-            Tick honestly at night for both of you. This drives the hero snapshot on top.
-          </p>
-          <div class="checklist">
-            <div class="check-row check-row-header">
-              <span>Task</span>
-              <span id="checkName1">Student 1</span>
-              <span id="checkName2">Student 2</span>
-            </div>
-            <div class="check-row">
-              <span>Morning study completed</span>
-              <label><input type="c
+          <div class="score-pill">
+            <span>Friend Name</span>
+            <span>____ pts</span>
+          </div>
+        </div>
+        <p class="score-status">
+          Rule idea: +10 daily target, +20 test winner, +5 helping friend, –10 missing target.
+        </p>
+        <table class="score-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Event</th>
+              <th>Your points</th>
+              <th>Friend points</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mon</td>
+              <td>All targets done?</td>
+              <td>____</td>
+              <td>____</td>
+            </tr>
+            <tr>
+              <td>Tue</td>
+              <td>Mini-test winner</td>
+              <td>____</td>
+              <td>____</td>
+            </tr>
+            <tr>
+              <td>Sun</td>
+              <td>Weekly total</td>
+              <td>____</td>
+              <td>____</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Daily Discipline Checklist</div>
+          <span class="tag">Tick honestly</span>
+        </div>
+        <p class="card-sub">
+          Print this or copy in your notebook and tick every night together.
+        </p>
+        <div class="checklist">
+          <div class="check-row check-row-header">
+            <span>Task</span>
+            <span>Your Name</span>
+            <span>Friend Name</span>
+          </div>
+          <div class="check-row">
+            <span>Morning study completed</span>
+            <label><input type="checkbox" /> Done</label>
+            <label><input type="checkbox" /> Done</label>
+          </div>
+          <div class="check-row">
+            <span>School notes + doubts written</span>
+            <label><input type="checkbox" /> Done</label>
+            <label><input type="checkbox" /> Done</label>
+          </div>
+          <div class="check-row">
+            <span>Evening practice / PYQs completed</span>
+            <label><input type="checkbox" /> Done</label>
+            <label><input type="checkbox" /> Done</label>
+          </div>
+          <div class="check-row">
+            <span>Night mini-test given & checked</span>
+            <label><input type="checkbox" /> Done</label>
+            <label><input type="checkbox" /> Done</label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEEKLY TARGETS & DASHBOARD -->
+    <section class="cards-row" id="weekly">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Weekly Targets</div>
+          <span class="tag">Plan on Sunday</span>
+        </div>
+        <p class="card-sub">
+          Decide targets together. Keep them realistic but slightly challenging.
+        </p>
+        <table class="week-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Subject</th>
+              <th>Chapter / Work</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mon</td>
+              <td>Physics</td>
+              <td>Electrostatics NCERT + examples</td>
+              <td>⬜</td>
+            </tr>
+            <tr>
+              <td>Tue</td>
+              <td>Maths</td>
+              <td>Definite Integral PYQs</td>
+              <td>⬜</td>
+            </tr>
+            <tr>
+              <td>Wed</td>
+              <td>Chemistry</td>
+              <td>Chemical Kinetics numericals</td>
+              <td>⬜</td>
+            </tr>
+            <tr>
+              <td>Thu</td>
+              <td>English</td>
+              <td>1 full sample paper</td>
+              <td>⬜</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin-top:4px;">
+          You can edit this table in the code whenever you want new weekly targets.
+        </p>
+      </div>
+
+      <div class="card" id="dashboard">
+        <div class="card-header">
+          <div class="card-title">Today’s Study Dashboard</div>
+          <span class="tag">Fill & review</span>
+        </div>
+        <p class="card-sub">
+          Use this area daily to write what you will do and what you actually did.
+        </p>
+        <textarea placeholder="Today’s focus:
+• Subject 1:
+• Subject 2:
+• Mini-test topic:"></textarea>
+        <textarea placeholder="Non-negotiable tasks:
+• 
+• 
+• "></textarea>
+        <textarea placeholder="End of day notes:
+What went well?
+What was weak?
+What to fix tomorrow?"></textarea>
+      </div>
+    </section>
+
+    <footer>
+      Built by us, for us. Grow Together – Class 12 Board Mission.
+    </footer>
+  </div>
+
+  <!-- Simple days-left calculator -->
+  <script>
+    // Change this to your real board exam date (YYYY-MM-DD)
+    const examDateString = "2025-03-01";
+
+    (function () {
+      const span = document.getElementById("days-left");
+      if (!span) return;
+      const today = new Date();
+      const examDate = new Date(examDateString);
+      const diffMs = examDate - today;
+      const diffDays = Math.max(0, Math.round(diffMs / (1000 * 60 * 60 * 24)));
+      if (!Number.isNaN(diffDays)) {
+        span.textContent = diffDays;
+      }
+    })();
+  </script>
+</body>
+              </html>
