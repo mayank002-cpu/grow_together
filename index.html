@@ -672,4 +672,12 @@
       currentUserKey = savedUser;
       loginOverlay.style.display = "none";
       applyUserNames(currentUserKey);
-      loadChecklistS
+      loadChecklistState();
+  } else {
+    loginOverlay.style.display = "flex";
+    loginInput.focus();
+  }
+})();
+  </script>
+</body>
+</html>
