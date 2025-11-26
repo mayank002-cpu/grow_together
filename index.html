@@ -1,487 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Grow Together – Class 12 Study Partner</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <title>Study League 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    :root {
-      --bg: #f3f4f6;
-      --primary: #16a34a;
-      --primary-soft: #dcfce7;
-      --accent: #facc15;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --card-bg: #ffffff;
-      --border: #e5e7eb;
-      --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #fef3c7 0, #f3f4f6 40%, #e0f2fe 100%);
-      color: var(--text-main);
-      line-height: 1.5;
-      min-height: 100vh;
-    }
-
-    .page {
-      max-width: 960px;
+      font-family: Arial, sans-serif;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 16px 16px 40px;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .logo-circle {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: conic-gradient(from 180deg, #22c55e, #facc15, #22c55e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      color: #022c22;
-      box-shadow: var(--shadow);
-    }
-
-    .logo-title { font-weight: 700; }
-    .logo-sub { font-size: 0.8rem; color: var(--text-muted); }
-
-    nav {
-      display: flex;
-      gap: 8px;
-      font-size: 0.82rem;
-    }
-
-    nav a {
-      padding: 4px 10px;
-      border-radius: 999px;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    nav a:hover {
-      background: rgba(22, 163, 74, 0.1);
-      border: 1px solid rgba(22, 163, 74, 0.2);
-    }
-
-    .user-bar {
-      margin-bottom: 10px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.9);
-      font-size: 0.8rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid #e5e7eb;
-    }
-
-    .btn {
-      border: none;
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .btn-ghost {
-      background: #f3f4f6;
-      border: 1px solid #e5e7eb;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(250, 204, 21, 0.16));
-      border-radius: 22px;
       padding: 16px;
-      margin-bottom: 16px;
-      box-shadow: var(--shadow);
     }
-
-    .hero-badge {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      background: #fff;
-      border-radius: 999px;
-      padding: 4px 10px;
-      border: 1px solid rgba(22, 163, 74, 0.25);
-      font-size: 0.8rem;
-      margin-bottom: 8px;
-    }
-
-    .hero-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-
-    .hero-title span { color: #166534; }
-    .hero-sub { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 10px; }
-    .hero-note { font-size: 0.8rem; color: var(--text-muted); }
-
-    .cards {
-      display: grid;
-      grid-template-columns: 1.4fr 1.6fr;
-      gap: 14px;
-    }
-
-    @media (max-width: 800px) {
-      .cards { grid-template-columns: 1fr; }
-      header { flex-direction: column; align-items: flex-start; gap: 6px; }
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 18px;
-      padding: 12px 12px 12px;
-      box-shadow: var(--shadow);
-      border: 1px solid #e5e7eb;
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-      font-size: 0.9rem;
-    }
-
-    .card-title { font-weight: 600; }
-    .tag { font-size: 0.74rem; padding: 2px 7px; border-radius: 999px; background: #e0f2fe; color: #0369a1; }
-    .card-sub { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 8px; }
-
-    .score-top {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-      margin-bottom: 6px;
-      font-size: 0.86rem;
-    }
-
-    .score-pill {
-      background: #dcfce7;
-      padding: 6px 8px;
-      border-radius: 999px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.78rem;
-    }
-
-    th, td {
-      padding: 4px 3px;
-      border-bottom: 1px solid #e5e7eb;
-      text-align: left;
-    }
-
-    th { font-weight: 600; color: #4b5563; }
-
-    .checklist {
-      font-size: 0.8rem;
-      display: grid;
-      gap: 6px;
-    }
-
-    .check-row {
-      display: grid;
-      grid-template-columns: 1.4fr repeat(2, 0.9fr);
-      gap: 4px;
-      align-items: center;
-    }
-
-    .check-row-header span { font-weight: 600; }
-
-    .check-row label {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.78rem;
-    }
-
-    footer {
-      margin-top: 18px;
-      font-size: 0.78rem;
+    header {
       text-align: center;
-      color: var(--text-muted);
+      margin-bottom: 24px;
     }
-
-    /* LOGIN OVERLAY */
-    #loginOverlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 50;
+    h1 {
+      margin-bottom: 4px;
     }
-
-    .login-card {
-      background: #f9fafb;
-      padding: 18px 18px 16px;
-      border-radius: 18px;
-      width: min(360px, 92%);
-      box-shadow: var(--shadow);
-      border: 1px solid #e5e7eb;
+    nav a {
+      margin-right: 12px;
+      text-decoration: none;
     }
-
-    .login-card h2 { font-size: 1.2rem; margin-bottom: 4px; }
-    .login-card p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 8px; }
-
-    .login-label { font-size: 0.8rem; margin-bottom: 3px; display: block; }
-
-    .login-input {
-      width: 100%;
-      padding: 7px 8px;
-      border-radius: 10px;
-      border: 1px solid #d4d4d8;
-      font-size: 0.86rem;
-      background: #f9fafb;
-      margin-bottom: 8px;
+    section {
+      margin-bottom: 32px;
+      padding: 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
     }
-
-    .login-input:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.2);
-      background: #ffffff;
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
     }
-
-    .login-error { font-size: 0.78rem; color: #b91c1c; margin-top: 4px; }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Study League 2025</h1>
+    <p>Learn together. Compete together. Grow together.</p>
+    <nav>
+      <a href="#goals">Weekly Goals</a>
+      <a href="#log">Log Study</a>
+      <a href="#leaderboard">Leaderboard</a>
+    </nav>
+  </header>
 
-  <!-- LOGIN POPUP -->
-  <div id="loginOverlay">
-    <div class="login-card">
-      <h2>Grow Together Login</h2>
-      <p>Only for <strong>Mayank Pandey</strong> &amp; <strong>Himanshu Pal</strong>.</p>
-      <label class="login-label" for="loginUsername">Username</label>
-      <input
-        id="loginUsername"
-        class="login-input"
-        type="text"
-        placeholder="mayank or himanshu"
-        autocomplete="off"
-        onkeydown="if(event.key==='Enter'){loginUser();}"
-      />
-      <button type="button" class="btn btn-primary" style="width:100%;" onclick="loginUser()">
-        Enter
-      </button>
-      <div style="font-size:0.75rem; color:#6b7280; margin-top:4px;">
-        Username fixed: <code>mayank</code> or <code>himanshu</code>.
-      </div>
-      <div id="loginError" class="login-error"></div>
-    </div>
-  </div>
+  <section id="goals">
+    <h2>This Week's Goals</h2>
+    <ul>
+      <li>Physics: Electrostatics – NCERT + 30 MCQs</li>
+      <li>Chemistry: Solutions – NCERT examples</li>
+      <li>Maths: Application of Derivatives – PYQs</li>
+      <li>Sunday: 1 full mock test</li>
+    </ul>
 
-  <div class="page">
-    <header>
-      <div class="logo">
-        <div class="logo-circle">GT</div>
-        <div>
-          <div class="logo-title">Grow Together</div>
-          <div class="logo-sub">Class 12 Board Study Partner System</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#scoreboard">Scoreboard</a>
-        <a href="#checklist">Checklist</a>
-      </nav>
-    </header>
+    <h3>Points System</h3>
+    <ul>
+      <li>Daily target completed: 10 points</li>
+      <li>Extra 30 mins study: 3 points</li>
+      <li>50 MCQs solved: 5 points</li>
+      <li>Helping with doubt: 4 points</li>
+      <li>Highest in weekly test: 20 points</li>
+      <li>Missing daily study: -5 points</li>
+    </ul>
+  </section>
 
-    <div class="user-bar">
-      <span>Logged in as: <strong id="loggedUserText">–</strong></span>
-      <button class="btn btn-ghost" style="font-size:0.78rem;" onclick="showLoginAgain()">Switch user</button>
-    </div>
+  <section id="log">
+    <h2>Log Today’s Study</h2>
+    <p>Click the button below to submit your study details for today.</p>
+    <button onclick="window.open('YOUR_GOOGLE_FORM_LINK_HERE', '_blank')">
+      Open Study Log Form
+    </button>
+  </section>
 
-    <section class="hero">
-      <div class="hero-badge">
-        <span>★</span>
-        <span><span id="days-left">80</span> days • Two friends • One mission</span>
-      </div>
-      <h1 class="hero-title">Beat <span>Boards Together</span>, not alone.</h1>
-      <p class="hero-sub">
-        Private HQ for Mayank &amp; Himanshu to track routine, mini-tests, scores and discipline.
-      </p>
-      <p class="hero-note">
-        “One day missed = two days lost.” Promise each other to show up every single day.
-      </p>
-    </section>
+  <section id="leaderboard">
+    <h2>Leaderboard</h2>
+    <p>This table is updated automatically from your form responses.</p>
+    <!-- Replace the src with your published Google Sheet link -->
+    <iframe 
+      src="YOUR_GOOGLE_SHEET_EMBED_LINK_HERE" 
+      width="100%" 
+      height="400"
+      style="border:1px solid #ccc; border-radius:8px;">
+    </iframe>
+  </section>
 
-    <section class="cards" id="scoreboard">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">Scoreboard</div>
-          <span class="tag">Friendly competition</span>
-        </div>
-        <p class="card-sub">
-          Points likhna aap dono ka kaam hai. Higher weekly total = winner.
-        </p>
-        <div class="score-top">
-          <div class="score-pill">
-            <span id="scoreNameSelf">Self</span>
-            <span>____ pts</span>
-          </div>
-          <div class="score-pill">
-            <span id="scoreNameFriend">Friend</span>
-            <span>____ pts</span>
-          </div>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Day</th>
-              <th>Event</th>
-              <th id="tblSelfHead">Self</th>
-              <th id="tblFriendHead">Friend</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Mon</td>
-              <td>All targets done?</td>
-              <td>____</td>
-              <td>____</td>
-            </tr>
-            <tr>
-              <td>Tue</td>
-              <td>Mini-test winner</td>
-              <td>____</td>
-              <td>____</td>
-            </tr>
-            <tr>
-              <td>Sun</td>
-              <td>Weekly total</td>
-              <td>____</td>
-              <td>____</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="card" id="checklist">
-        <div class="card-header">
-          <div class="card-title">Daily Discipline Checklist</div>
-          <span class="tag">Tick honestly</span>
-        </div>
-        <p class="card-sub">
-          Raat ko milke tick karo. Yeh abhi sirf visual checklist hai (save nahi ho raha).
-        </p>
-        <div class="checklist">
-          <div class="check-row check-row-header">
-            <span>Task</span>
-            <span id="checkNameSelf">Self</span>
-            <span id="checkNameFriend">Friend</span>
-          </div>
-          <div class="check-row">
-            <span>Morning study completed</span>
-            <label><input type="checkbox" /> Done</label>
-            <label><input type="checkbox" /> Done</label>
-          </div>
-          <div class="check-row">
-            <span>School notes + doubts written</span>
-            <label><input type="checkbox" /> Done</label>
-            <label><input type="checkbox" /> Done</label>
-          </div>
-          <div class="check-row">
-            <span>Evening practice / PYQs completed</span>
-            <label><input type="checkbox" /> Done</label>
-            <label><input type="checkbox" /> Done</label>
-          </div>
-          <div class="check-row">
-            <span>Night mini-test given &amp; checked</span>
-            <label><input type="checkbox" /> Done</label>
-            <label><input type="checkbox" /> Done</label>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      Built by Mayank &amp; Himanshu – Grow Together.
-    </footer>
-  </div>
-
-  <script>
-    // Days left (exam date change kar sakte ho)
-    (function () {
-      const examDate = new Date("2025-03-01");
-      const today = new Date();
-      const diff = examDate - today;
-      const days = Math.max(0, Math.round(diff / (1000 * 60 * 60 * 24)));
-      document.getElementById("days-left").textContent = days;
-    })();
-
-    function applyNames(username) {
-      const isMayank = username === "mayank";
-      const selfName = isMayank ? "Mayank Pandey" : "Himanshu Pal";
-      const friendName = isMayank ? "Himanshu Pal" : "Mayank Pandey";
-
-      document.getElementById("loggedUserText").textContent = selfName;
-      document.getElementById("scoreNameSelf").textContent = selfName;
-      document.getElementById("scoreNameFriend").textContent = friendName;
-      document.getElementById("tblSelfHead").textContent = selfName;
-      document.getElementById("tblFriendHead").textContent = friendName;
-      document.getElementById("checkNameSelf").textContent = selfName;
-      document.getElementById("checkNameFriend").textContent = friendName;
-    }
-
-    function loginUser() {
-      const input = document.getElementById("loginUsername");
-      const errorBox = document.getElementById("loginError");
-      const value = (input.value || "").trim().toLowerCase();
-
-      if (value !== "mayank" && value !== "himanshu") {
-        errorBox.textContent = "Use username: mayank or himanshu.";
-        return;
-      }
-
-      // sahi username
-      errorBox.textContent = "";
-      document.getElementById("loginOverlay").style.display = "none";
-      applyNames(value);
-    }
-
-    function showLoginAgain() {
-      document.getElementById("loginOverlay").style.display = "flex";
-      document.getElementById("loginUsername").value = "";
-      document.getElementById("loginError").textContent = "";
-      document.getElementById("loginUsername").focus();
-    }
-  </script>
+  <footer>
+    <p style="text-align:center; font-size: 14px; margin-top: 24px;">
+      Built by us for our own growth.
+    </p>
+  </footer>
 </body>
 </html>
